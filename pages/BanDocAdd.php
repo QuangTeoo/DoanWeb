@@ -1,7 +1,17 @@
 <?php
 if (isset($_POST["password"])) {
-    if (session_id() === '')
-        session_start();
+    require('./func.php');
+    require('./conn.php');
+    $Hoten = $_POST['hoten'];
+    $Ngaysinh = $_POST['ngaysinh'];
+    $Que = $_POST['que'];
+    $CMND = $_POST['cccd'];
+    $SDT = $_POST['phone'];
+    $Gioitinh = $_POST['gioitinh'];
+    $Matkhau = $_POST['password'];
+    $Matkhau = password_hash($Matkhau,PASSWORD_DEFAULT);
+    
+    addBanDoc($conn,$Hoten,$Ngaysinh,$Que,$CMND,$SDT,$Gioitinh,$Matkhau);
     // TODO
 }
 ?>
