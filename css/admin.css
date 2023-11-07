@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar ul{
+    list-style: none;
+    background-color: #ffe4e6;
+}
+
+.nav-bar > ul {
+    padding: 0 80px;
+}
+
+.nav-bar > ul{
+    display: flex;
+}
+
+.nav-bar a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-bar a:hover {
+    background-color: #fda4af;
+}
+
+#nav-name{
+    margin-left: auto;
+}
+.nav-bar li > .dropdown{
+    display: none;
+    position: absolute;
+}
+.nav-bar li:hover > .dropdown{
+    display: block;
+}
