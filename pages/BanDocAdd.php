@@ -7,11 +7,12 @@ if (isset($_POST["password"])) {
     $Que = $_POST['que'];
     $CMND = $_POST['cccd'];
     $SDT = $_POST['phone'];
+    $Email=$_POST['email'];
     $Gioitinh = $_POST['gioitinh'];
     $Matkhau = $_POST['password'];
     $Matkhau = password_hash($Matkhau,PASSWORD_DEFAULT);
     
-    addBanDoc($conn,$Hoten,$Ngaysinh,$Que,$CMND,$SDT,$Gioitinh,$Matkhau);
+    addBanDoc($conn,$Hoten,$Ngaysinh,$Que,$CMND,$SDT,$Email,$Gioitinh,$Matkhau);
     // TODO
 }
 ?>
@@ -31,6 +32,10 @@ if (isset($_POST["password"])) {
 
         <label for="sdt">Số điện thoại</label>
         <input type="text" name="phone" id="" placeholder="Nhập số điện thoại" required>
+
+        <label for="email">Email</label>
+        <input type="text" name="email" id="" placeholder="Nhập email" required>
+
         <div>
             <label for="gioitinh">Giới tính</label>
             <div>

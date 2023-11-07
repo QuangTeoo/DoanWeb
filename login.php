@@ -1,3 +1,20 @@
+<?php 
+    if (isset($_POST["username"])) {
+      session_start();
+      require"./conn.php";
+      require"./func.php";
+      $Username = $_POST['username'];
+      $Password = $_POST['password'];
+      $result = getpassThuThu($conn,$Username);
+      mysqli_close($conn);
+      if(isset($result)&& password_verify($Password, $result['password']))
+          if(session_id()=== '' )
+              session_start();
+          $_SESSION["username"] =$_POST["username"];
+          header("Location:index.php");
+          exit();
+      }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
