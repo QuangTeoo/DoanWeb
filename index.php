@@ -5,15 +5,16 @@
     <title>Trang chủ</title>
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/register_login.css">
+    <link rel="stylesheet" type="text/css" href="css/Sachlist.css">
 </head>
 <body>
     <div class="nav-bar">
         <ul>
             <li><a href="?">Nhận/Trả sách</a></li>
             <li>
-                <a href="?page=sachlist">Quản lý sách</a>
+                <a href="?page=SachList">Quản lý sách</a>
                 <ul class="dropdown">
-                    <li><a href="?page=sachlist">Danh sách sách</a></li>
+                    <li><a href="?page=SachList">Danh sách sách</a></li>
                     <li><a href="?page=sachadd">Thêm sách mới</a></li>
                 </ul>
             </li>
@@ -32,7 +33,11 @@
                 case 'bandocadd':
                     require("pages/BanDocAdd.php");
                     break;
+                case 'SachList' :
+                    require("pages/SachList.php");
+                    break;
                 default:
+                
             }
         ?>
     </div>

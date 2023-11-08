@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main_table > h1{
+    text-align: center;
+    margin: 10px auto;
+    text-transform: uppercase;
+}
+.main_table a{
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    padding-right: 10px;
+    text-align: center;
+    border-right: 1px solid;
+}
+table{
+    width: 1100px;
+    margin :0 auto;
+    border-collapse: collapse;
+    
+}
+th{
+    border-bottom: 1px solid;
+    height: 70px;
+    background-color: white;
+    
+}
+td{
+    text-align: center;
+    height: 36px;
+    border-bottom: 1px solid;
+    padding-top: 20px;
+    background-color: #d1d5db;
+    
+}

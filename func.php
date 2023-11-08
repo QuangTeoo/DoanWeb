@@ -1,5 +1,5 @@
 <?php
-// 
+// Function for BanDoc
 function addBanDoc($conn, $hoten, $ngaysinh, $que, $cccd, $phone,$email,$gioitinh,$password) {
     $sql_statement = "INSERT INTO `bandoc` (`tenBandoc`, `ngaySinh`, `gioiTinh`, `queQuan`, `cmnd`, `dt`,`email`, `matKhau`) VALUES ('$hoten', '$ngaysinh', '$gioitinh', '$que', '$cccd', '$phone','$email','$password')";
     mysqli_query($conn, $sql_statement);
@@ -13,5 +13,7 @@ function getpassThuThu($conn,$Username){
         }
     }
     return $result;
+// Function for DanhsachSach
+
 }
 ?>
