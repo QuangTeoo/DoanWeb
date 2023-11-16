@@ -23,7 +23,7 @@
                 <td>lqtien21015982131321123123123123@student.edu.vn</td>
                 <td>
                     <a href="?page=bandocdetail">Chi tiết</a>
-                    <a href="bandocupdate">Sửa</a>
+                    <a href="?page=bandocupdate">Sửa</a>
                     <a href="#">Xóa</a>
                 </td>
             </tr>

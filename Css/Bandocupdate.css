@@ -1,0 +1,71 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff1f2;
+}
+.container-update h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+.container-update form > input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+.content-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 7px;
+}
+.container-update-btn button{
+    background-color: #f43f5e;
+    color: #fff7ed;
+    font-size: 17px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+.content-grid-date input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}
+.content-grid-gender select,option{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}
+.content-grid-vilage input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}
+.content-grid-cmnd input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}
+.content-grid-email input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}
+.content-grid-phone input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    margin-bottom: 10px;
+}

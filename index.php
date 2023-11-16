@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/Bandoclist.css">
     <link rel="stylesheet" href="css/Bandocdetail.css">
     <link rel="stylesheet" href="css/Sachbo_re.css">
+    <link rel="stylesheet" href="css/Bandocupdate.css">
 </head>
 <body>
     <div class="nav-bar">
@@ -62,8 +63,12 @@
                 require("pages/BanDocDetail.php");
                 break;
             case 'sachbore':
-            default:
                 require("pages/SachBo_Re.php");
+                break;
+            case 'bandocupdate':
+                require("pages/BanDocUpdate.php");
+                break;
+            default:
         }
         ?>
     </div>
