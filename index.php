@@ -1,3 +1,11 @@
+<?php
+    if (session_id() === '')
+        session_start();
+    if (empty($_SESSION["username"])) {
+        header("Location: login.php");
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,36 +35,36 @@
                 <a href="?page=bandoclist">Danh sách bạn đọc</a>
             </li>
             <li><a href="?page=bandocadd">Thêm bạn đọc mới</a></li>
-            <li id="nav-name"><a>Xin chào HOTEN</a></li>
+            <li id="nav-name"><a>Xin chào <?php echo $_SESSION["tenThuThu"] ?></a></li>
             <li><a href="login.php?logout=1">Đăng xuất</a></li>
         </ul>
     </div>
     <div id="main">
         <?php
-        if (isset($_GET["page"]))
-            switch ($_GET["page"]) {
-                case 'bandocadd':
-                    require("pages/BanDocAdd.php");
-                    break;
-                case 'sachlist' :
-                    require("pages/SachList.php");
-                    break;
-                case 'sachupdate':
-                    require("pages/SachUpdate.php");
-                    break;
-                case 'sachadd' :
-                    require("pages/SachAdd.php");
-                    break;
-                case 'bandoclist':
-                    require("pages/BanDocList.php");
-                    break;
-                case 'bandocdetail':
-                    require("pages/BanDocDetail.php");
-                    break;
-                case 'sachbore':
-                    require("pages/SachBo_Re.php");
-                default:
-            }
+        $page = isset($_GET["page"]) ? $_GET["page"] : "";
+        switch ($page) {
+            case 'bandocadd':
+                require("pages/BanDocAdd.php");
+                break;
+            case 'sachlist' :
+                require("pages/SachList.php");
+                break;
+            case 'sachupdate':
+                require("pages/SachUpdate.php");
+                break;
+            case 'sachadd' :
+                require("pages/SachAdd.php");
+                break;
+            case 'bandoclist':
+                require("pages/BanDocList.php");
+                break;
+            case 'bandocdetail':
+                require("pages/BanDocDetail.php");
+                break;
+            case 'sachbore':
+            default:
+                require("pages/SachBo_Re.php");
+        }
         ?>
     </div>
 </body>

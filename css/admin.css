@@ -37,3 +37,29 @@
 .nav-bar li:hover > .dropdown{
     display: block;
 }
+#main {
+    width: 1000px;
+    margin: 20px auto;
+}
+.search-box form {
+    display: flex;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 20px;
+    flex: 1 1;
+    border: 0;
+}
+
+.search-box button[type=submit] {
+    padding: 10px 20px;
+    border: 0;
+    background-color: #f43f5e;
+    color: #fff1f2;
+    cursor: pointer;
+}
+
+.search-box button[type=submit]:hover {
+    background-color: #e11d48;
+}

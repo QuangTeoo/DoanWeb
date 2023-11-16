@@ -1,19 +1,25 @@
 <?php 
+    if(session_id() === '' )
+      session_start();
+    if (isset($_GET["logout"]))
+      unset($_SESSION["username"]);
     if (isset($_POST["username"])) {
       session_start();
       require"./conn.php";
       require"./func.php";
-      $Username = $_POST['username'];
-      $Password = $_POST['password'];
-      $result = getpassThuThu($conn,$Username);
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      $result = getThuThu($conn,$username);
       mysqli_close($conn);
-      if(isset($result)&& password_verify($Password, $result['password']))
-          if(session_id()=== '' )
-              session_start();
-          $_SESSION["username"] =$_POST["username"];
-          header("Location:index.php?page=sachlist");
+      if(isset($result) && password_verify($password, $result['matKhau'])) {
+          $_SESSION["username"] = $_POST["username"];
+          $_SESSION["tenThuThu"] = $result["tenThuthu"];
+          header("Location: index.php");
           exit();
-      }
+        } else {
+          echo "sai mat khau";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

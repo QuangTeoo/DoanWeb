@@ -8,11 +8,12 @@
     margin: 10px auto;
 }
 .usermain-table table{
-    width: 1000px;
-    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse; /* làm mất khung */
+    /* border-top: 1px solid black; */
 }
 .usermain-table th{
-    border-bottom: 1px solid;
+    /* border-bottom: 1px solid; */
     max-width: 700px;
     height: 50px;
     background-color: #d1d5db;
@@ -22,14 +23,14 @@
     height: 40px;
     max-width: 500px;
     text-align: center;
-    padding-top: 10px;
+    padding: 10px 0;
 }
 .usermain-table a{
     border: 1px solid;
     border-radius: 5px;
     padding: 9px 10px;
     color: black;
-    margin-bottom: 10px;
     text-decoration: none;
     text-align: center;
+    display: inline-block;
 }

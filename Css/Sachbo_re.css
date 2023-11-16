@@ -2,6 +2,44 @@
     padding: 0px;
     margin: 0px;
 }
-.Bo_Re-main{    
-    display: flex; 
+#bore-main{    
+    display: grid;
+    grid-auto-flow: column;
+    gap: 200px;
+}
+
+#bore-main label {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+#bore-main .re-element-container,.bo-element-container {
+    margin: 10px 0;
+}
+
+#bore-main input {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    box-sizing: border-box;
+    padding: 5px 10px;
+}
+
+#bore-main button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    box-sizing: border-box;
+    margin: 20px 0;
+    background-color: #f43f5e;
+    color: #fff1f2;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#bore-main button:hover {
+    background-color: #881337;
 }
