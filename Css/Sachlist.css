@@ -10,27 +10,28 @@
 .main_table a{
     text-decoration: none;
     color: black;
-    margin: 0 10px;
-    padding-right: 10px;
+    margin-bottom: 10px;
     text-align: center;
-    border-right: 1px solid;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 9px 10px;
 }
-table{
+.main_table table{
     width: 1100px;
     margin :0 auto;
-    border-collapse: collapse;
+    border-collapse: collapse; /* làm mất khung */
     
 }
-th{
+.main_table th{
     border-bottom: 1px solid;
     height: 70px;
     background-color: white;
     
 }
-td{
+.main_table td{
     text-align: center;
-    height: 36px;
-    border-bottom: 1px solid;
+    height: 40px;
+    /* border-bottom: 1px solid; */
     padding-top: 20px;
     background-color: #d1d5db;
     

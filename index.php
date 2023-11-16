@@ -5,16 +5,21 @@
     <title>Trang chủ</title>
     <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="css/register_login.css">
-    <link rel="stylesheet" type="text/css" href="css/Sachlist.css">
+    <link rel="stylesheet" href="css/Sachlist.css">
+    <link rel="stylesheet" href="css/Sachupdate.css">
+    <link rel="stylesheet" href="css/Sachadd.css">
+    <link rel="stylesheet" href="css/Bandoclist.css">
+    <link rel="stylesheet" href="css/Bandocdetail.css">
+    <link rel="stylesheet" href="css/Sachbo_re.css">
 </head>
 <body>
     <div class="nav-bar">
         <ul>
-            <li><a href="?">Nhận/Trả sách</a></li>
+            <li><a href="?page=sachbore">Nhận/Trả sách</a></li>
             <li>
-                <a href="?page=SachList">Quản lý sách</a>
+                <a href="?page=sachlist">Quản lý sách</a>
                 <ul class="dropdown">
-                    <li><a href="?page=SachList">Danh sách sách</a></li>
+                    <li><a href="?page=sachlist">Danh sách sách</a></li>
                     <li><a href="?page=sachadd">Thêm sách mới</a></li>
                 </ul>
             </li>
@@ -33,11 +38,24 @@
                 case 'bandocadd':
                     require("pages/BanDocAdd.php");
                     break;
-                case 'SachList' :
+                case 'sachlist' :
                     require("pages/SachList.php");
                     break;
+                case 'sachupdate':
+                    require("pages/SachUpdate.php");
+                    break;
+                case 'sachadd' :
+                    require("pages/SachAdd.php");
+                    break;
+                case 'bandoclist':
+                    require("pages/BanDocList.php");
+                    break;
+                case 'bandocdetail':
+                    require("pages/BanDocDetail.php");
+                    break;
+                case 'sachbore':
+                    require("pages/SachBo_Re.php");
                 default:
-                
             }
         ?>
     </div>

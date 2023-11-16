@@ -11,7 +11,7 @@
           if(session_id()=== '' )
               session_start();
           $_SESSION["username"] =$_POST["username"];
-          header("Location:index.php");
+          header("Location:index.php?page=sachlist");
           exit();
       }
 ?>

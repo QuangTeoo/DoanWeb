@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .mainadd-form h1{
+    margin: 10px 0 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .mainadd-form {
+      max-width: 1000px;
+      margin: 10px auto;
+  
+    }
+  .add-form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 15px;
+  
+  }
+  .mainadd-form  input,textarea{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+  }
+  .mainadd-form lable{
+    display: block;
+    margin-bottom: 10px;
+  }
+  .add-form-col{
+    margin-bottom: 10px;
+  }
+  .mainadd-form-btn{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  .mainadd-form-btn:hover{
+    background-color:rgb(180, 173, 173);
+  }
+  
