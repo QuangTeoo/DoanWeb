@@ -10,20 +10,25 @@
                 <th>CMND</th>
                 <th>Điện thoại</th>
                 <th>Email</th>
-                <th>Mật khẩu</th>
             </thead>
             <tbody>
+            <?php
+            require('./conn.php');
+            require('./func.php');
+            $result = detailBandoc($conn,$_GET["mabandoc"]);
+                while ($r = mysqli_fetch_array($result)) {
+            ?>
                 <tr>
-                    <td>10052003</td>
-                    <td>Tèo</td>
-                    <td>10/05/2003</td>
-                    <td>Nam</td>
-                    <td>Cần Thơ</td>
-                    <td>361141949</td>
-                    <td>01231231</td>
-                    <td>lequangteo123@gmail.com</td>
-                    <td>1234567</td>
+                    <td><?php echo $r["maBandoc"] ?></td>
+                    <td><?php echo $r["tenBandoc"] ?></td>
+                    <td><?php echo $r["ngaySinh"] ?></td>
+                    <td><?php echo $r["gioiTinh"] ?></td>
+                    <td><?php echo $r["queQuan"] ?></td>
+                    <td><?php echo $r["cmnd"] ?></td>
+                    <td><?php echo $r["dt"] ?></td>
+                    <td><?php echo $r["email"] ?></td>
                 </tr>
+            <?php } ?>
             </tbody>
         </table>
     </div>

@@ -1,13 +1,14 @@
 <?php
-    if (session_id() === '')
-        session_start();
-    if (empty($_SESSION["username"])) {
-        header("Location: login.php");
-        exit();
-    }
+if (session_id() === '')
+    session_start();
+if (empty($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Trang chủ</title>
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="css/Sachbo_re.css">
     <link rel="stylesheet" href="css/Bandocupdate.css">
 </head>
+
 <body>
     <div class="nav-bar">
         <ul>
@@ -47,13 +49,13 @@
             case 'bandocadd':
                 require("pages/BanDocAdd.php");
                 break;
-            case 'sachlist' :
+            case 'sachlist':
                 require("pages/SachList.php");
                 break;
             case 'sachupdate':
                 require("pages/SachUpdate.php");
                 break;
-            case 'sachadd' :
+            case 'sachadd':
                 require("pages/SachAdd.php");
                 break;
             case 'bandoclist':
@@ -62,15 +64,19 @@
             case 'bandocdetail':
                 require("pages/BanDocDetail.php");
                 break;
-            case 'sachbore':
-                require("pages/SachBo_Re.php");
-                break;
             case 'bandocupdate':
                 require("pages/BanDocUpdate.php");
                 break;
+            case 'bandocdelete':
+                require("pages/BanDocDelete.php");
+                break;
+            case 'sachbore':
             default:
+                require("pages/SachBo_Re.php");
+                break;
         }
         ?>
     </div>
 </body>
+
 </html>
