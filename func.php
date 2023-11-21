@@ -11,6 +11,7 @@ function updateBanDoc($conn,$Mabandoc,$Tenbandoc,$Ngaysinh,$Gioitinh,$Que,$Cmnd,
     mysqli_query($conn,$sql_statement);
     return mysqli_affected_rows($conn);
 }
+
 function getBandoc($conn,$Mabandoc){
      $sql_statement = "SELECT * FROM `bandoc` WHERE maBandoc = '$Mabandoc'";
      $result = mysqli_query($conn,$sql_statement);
@@ -47,4 +48,13 @@ function getThuThu($conn,$Username){
 
 }
 //Function for Sách
+
+// function listSach($conn,$Masach){
+//     $sql_statement= "SELECT maSach,tenSach,theLoai,tacGia"
+// }
+
+function addSach($conn,$Masach,$Tensach,$Theloai,$Tacgia,$Hinh,$Mota,$Namxb,$Nhaxb){
+    $sql_statement = "INSERT INTO `sach` (`maSach`,`tenSach`, `theLoai`, `tacGia`, `hinh`, `moTa`, `namXuatban`,`nhaXuatban`) VALUES ('$Masach', '$Tensach', '$Theloai', '$Tacgia', '$Hinh', '$Mota','$Namxb','$Nhaxb')";
+    mysqli_query($conn, $sql_statement);
+}
 ?>

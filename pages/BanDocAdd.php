@@ -13,7 +13,6 @@ if (isset($_POST["password"])) {
     $Matkhau = password_hash($Matkhau,PASSWORD_DEFAULT);
     
     addBanDoc($conn,$Hoten,$Ngaysinh,$Que,$CMND,$SDT,$Email,$Gioitinh,$Matkhau);
-    // TODO
 }
 ?>
 <div class="form-main">
