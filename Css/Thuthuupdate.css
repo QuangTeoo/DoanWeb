@@ -1,0 +1,29 @@
+.container-thuthu-update h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+.container-thuthu-update{
+    width: 1000px;
+    margin: 0 auto;
+}
+.container-thuthu-update form > input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-width: 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+.content-thuthu-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 7px;
+}
+.container-thuthu-update-btn button{
+    background-color: #f43f5e;
+    color: #fff7ed;
+    font-size: 17px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}

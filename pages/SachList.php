@@ -1,4 +1,4 @@
-<div class="main_table">
+<div class="main-listsach-table">
     <h1>Danh sách Sách</h1>
     <div class="search-box">
         <form method="get">

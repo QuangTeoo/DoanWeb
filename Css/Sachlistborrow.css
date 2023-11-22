@@ -2,12 +2,12 @@
     margin: 0;
     padding: 0;
 }
-.main-listsach-table > h1{
+.main-listborrow-table > h1{
     text-align: center;
     margin: 10px auto;
     text-transform: uppercase;
 }
-.main-listsach-table a{
+.main-listborrow-table a{
     text-decoration: none;
     color: black;
     text-align: center;
@@ -15,24 +15,24 @@
     border-radius: 5px;
     padding: 9px 10px;
 }
-.main-listsach-table table{
+.main-listborrow-table table{
     border-top: 1px solid black;
     width: 100%;
     border-collapse: collapse; /* làm mất khung */
     
 }
-.main-listsach-table th{
+.main-listborrow-table th{
     /* border-bottom: 1px solid; */
     padding: 10px;
     background-color: white;
     
 }
-.main-listsach-table td{
+.main-listborrow-table td{
     text-align: center;
     background-color: #d1d5db;
     padding: 10px 20px;
 }
 
-.main-listsach-table td > a {
+.main-listborrow-table td > a {
     display: inline-block;
 }

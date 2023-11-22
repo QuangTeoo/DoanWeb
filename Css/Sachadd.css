@@ -3,48 +3,48 @@
   padding: 0;
 }
 
-.mainadd-form h1 {
+.main-addsach-form h1 {
   margin: 10px 0 20px 0;
   text-align: center;
   text-transform: uppercase;
 }
 
-.mainadd-form {
+.main-addsach-form {
   max-width: 1000px;
   margin: 10px auto;
 
 }
 
-.add-form {
+.addsach-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
 
 }
 
-.mainadd-form input,
+.main-addsach-form input,
 textarea {
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
 }
 
-.mainadd-form lable {
+.main-addsach-form lable {
   display: block;
   margin-bottom: 10px;
 }
 
-.add-form-col {
+.addsach-form-col {
   margin-bottom: 10px;
 }
 
-.mainadd-form-btn {
+.main-addsach-form-btn {
   width: 100%;
   padding: 10px;
   border: none;
   cursor: pointer;
 }
 
-.mainadd-form-btn:hover {
+.main-addsach-form-btn:hover {
   background-color: rgb(180, 173, 173);
 }

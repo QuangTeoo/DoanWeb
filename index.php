@@ -13,14 +13,24 @@ if (empty($_SESSION["maThuthu"])) {
     <meta charset="UTF-8">
     <title>Trang chủ</title>
     <link rel="stylesheet" href="css/admin.css">
-    <link rel="stylesheet" href="css/register_login.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
+
     <link rel="stylesheet" href="css/Sachlist.css">
     <link rel="stylesheet" href="css/Sachupdate.css">
     <link rel="stylesheet" href="css/Sachadd.css">
+
+    <link rel="stylesheet" href="css/Bandocadd.css">
     <link rel="stylesheet" href="css/Bandoclist.css">
     <link rel="stylesheet" href="css/Bandocdetail.css">
-    <link rel="stylesheet" href="css/Sachbo_re.css">
     <link rel="stylesheet" href="css/Bandocupdate.css">
+
+    <link rel="stylesheet" href="css/Sachbo_re.css">
+    <link rel="stylesheet" href="css/Sachlistborrow.css">
+
+    <link rel="stylesheet" href="css/Thuthuupdate.css">
+    <link rel="stylesheet" href="css/Thuthulist.css">
+    <link rel="stylesheet" href="css/Thuthuadd.css">
 </head>
 
 <body>
@@ -35,10 +45,15 @@ if (empty($_SESSION["maThuthu"])) {
                     <li><a href="?page=sachadd">Thêm sách mới</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="?page=bandoclist">Danh sách bạn đọc</a>
-            </li>
+            <li><a href="?page=bandoclist">Danh sách bạn đọc</a></li>
             <li><a href="?page=bandocadd">Thêm bạn đọc mới</a></li>
+            <li>
+                <a href="?page=thuthulist">Quản lý thủ thư</a>
+                <ul class="dropdown">
+                    <li><a href="?page=thuthulist">Danh sách thủ thư</a></li>
+                    <li><a href="?page=thuthuadd">Thêm thủ thư mới</a></li>
+                </ul>
+            </li>
             <li id="nav-name"><a>Xin chào <?php echo $_SESSION["tenThuThu"] ?></a></li>
             <li><a href="login.php?logout=1">Đăng xuất</a></li>
         </ul>
@@ -49,6 +64,18 @@ if (empty($_SESSION["maThuthu"])) {
         switch ($page) {
             case 'bandocadd':
                 require("pages/BanDocAdd.php");
+                break;
+            case 'thuthuadd':
+                require("pages/ThuThuAdd.php");
+                break;
+            case 'thuthulist':
+                require("pages/ThuThuList.php");
+                break;
+            case 'thuthuupdate':
+                require("pages/ThuThuUpdate.php");
+                break;
+            case 'thuthudelete':
+                require("pages/ThuThuDelete.php");
                 break;
             case 'sachlist':
                 require("pages/SachList.php");
