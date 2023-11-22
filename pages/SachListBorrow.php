@@ -1,4 +1,4 @@
-<div class="main_table">
+<div class="main-listborrow-table">
     <h1>Danh sách Mượn</h1>
     <div class="search-box">
         <form method="get">

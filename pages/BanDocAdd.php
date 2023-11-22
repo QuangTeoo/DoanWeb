@@ -15,9 +15,9 @@ if (isset($_POST["password"])) {
     addBanDoc($conn,$Hoten,$Ngaysinh,$Que,$CMND,$SDT,$Email,$Gioitinh,$Matkhau);
 }
 ?>
-<div class="form-main">
+<div class="form-bandoc-main">
     <h1>Cấp tài khoản</h1>
-    <form class="register-form" method="post">
+    <form class="register-bandoc-form" method="post">
         <label for="hoten">Họ tên</label>
         <input type="text" name="hoten" id="hoten" placeholder="Nhập họ và tên" required>
         <label for="ngaysinh">Ngày sinh</label>
@@ -48,8 +48,17 @@ if (isset($_POST["password"])) {
         </div>
         <label for="password">Mật khẩu</label>
         <input type="password" name="password" id="password" required>
-        <div class="submit-btn">
+        <div class="submit-bandoc-btn">
             <button type="submit">Thêm</button>
         </div>
     </form>
 </div>
+<?php
+if (isset($_POST["password"])) {
+?>
+    <script>
+        alert("Thêm bạn đọc thành công");
+    </script>
+<?php
+}
+?>

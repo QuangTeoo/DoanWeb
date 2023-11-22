@@ -1,0 +1,46 @@
+body {
+    background-color: #fff1f2;
+}
+
+.form-bandoc-main {
+    max-width: 500px;
+    margin: 0px auto;
+}
+
+.form-bandoc-main h1 {
+    text-align: center;
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+}
+
+.form-bandoc-main form > * {
+    margin-bottom: 5px;
+}
+
+.form-bandoc-main form > input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    /* border: 1px solid black; */
+    border-width: 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.form-bandoc-main .submit-bandoc-btn {
+    margin-top: 10px;
+}
+
+.form-bandoc-main .submit-bandoc-btn button{
+    border: 0;
+    background-color: #f43f5e;
+    color: #fff7ed;
+    font-size: 17px;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.form-bandoc-main a {
+    color: #18181b;
+}

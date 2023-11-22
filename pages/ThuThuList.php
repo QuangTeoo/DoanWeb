@@ -1,5 +1,5 @@
-<div class="usermain-table">
-    <h1>Danh sách Bạn Đọc </h1>
+<div class="usermain-thuthu-table">
+    <h1>Danh sách thủ thư </h1>
     <div class="search-box">
         <form method="get">
             <input type="hidden" name="page" value="sachlist">
@@ -9,29 +9,24 @@
     </div>
     <table>
         <thead>
-            <th>Mã bạn đọc</th>
-            <th>Tên bạn đọc</th>
-            <th>Số điện thoại</th>
-            <th>Email</th>
+            <th>Mã thủ thư</th>
+            <th>Tên thủ thư</th>
             <th>Hành động</th>
         </thead>
         <tbody>
             <?php
             require('./conn.php');
             require('./func.php');
-            $result = listBanDoc($conn);
+            $result = listThuThu($conn);
             if ($result->num_rows > 0) {
                 while ($r = mysqli_fetch_array($result)) {
             ?>
                     <tr>
-                        <td><?php echo $r["maBandoc"] ?></td>
-                        <td><?php echo $r["tenBandoc"] ?></td>
-                        <td><?php echo $r["dt"] ?></td>
-                        <td><?php echo $r["email"] ?></td>
+                        <td><?php echo $r["maThuthu"] ?></td>
+                        <td><?php echo $r["tenThuthu"] ?></td>
                         <td>
-                            <a href="?page=bandocdetail&mabandoc=<?php echo $r["maBandoc"] ?>">Chi tiết</a>
-                            <a href="?page=bandocupdate&mabandoc=<?php echo $r["maBandoc"] ?>">Sửa</a>
-                            <button onclick='confirmDelete("<?php echo $r["maBandoc"] ?>","<?php echo $r["tenBandoc"] ?>")'>Xóa</button>
+                            <a href="?page=thuthuupdate&mathuthu=<?php echo $r["maThuthu"] ?>">Sửa</a>
+                            <button onclick='confirmDelete("<?php echo $r["maThuthu"] ?>","<?php echo $r["tenThuthu"] ?>")'>Xóa</button>
                         </td>
                     </tr>
                 <?php
@@ -46,14 +41,14 @@
     </table>
 </div>
 <script>
-    function confirmDelete(maBandoc, tenBandoc) {
+    function confirmDelete(maThuthu, tenThuthu) {
         if (confirm(
                 `Xác nhận xoá
-${maBandoc} - ${tenBandoc}.
+${maThuthu} - ${tenThuthu}.
 Thao tác này sẽ không thể hoàn tác.`
             )) {
             // console.log(document.location.origin + document.location.pathname + '?page=bandocdelete&mabandoc=' + maBandoc);
-            document.location = document.location.origin + document.location.pathname + '?page=bandocdelete&mabandoc=' + maBandoc;
+            document.location = document.location.origin + document.location.pathname + '?page=thuthudelete&mathuthu=' + maThuthu;
         }
 
     }

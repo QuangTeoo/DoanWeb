@@ -14,53 +14,53 @@ if (isset($_POST["masach"])) {
   addSach($conn,$Masach,$Tensach,$Theloai,$Tacgia,$Hinh,$Mota,$Namxb,$Nhaxb);
 }
 ?>
-<div class="mainadd-form center-container">
+<div class="main-addsach-form">
   <h1>Thêm sách mới </h1>
   <form method="post" enctype="multipart/form-data">
-    <div class="add-form">
+    <div class="addsach-form">
       <div class="add-form-col">
         <label for="masach">Mã sách </label>
         <input type="text" name="masach" id="masach" value="">
       </div>
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="tensach">Tên sách</label>
         <input type="text" name="tensach" id="tensach" value="">
       </div>
 
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="theloai">Thể loại </label>
         <input type="text" name="theloai" id="theloai" value="">
       </div>
 
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="tacgia">Tác giả </label>
         <input type="text" name="tacgia" id="tacgia" value="">
       </div>
 
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="hinh">Hình</label>
         <input type="file" name="hinh" id="hinh">
       </div>
 
 
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="mota">Mô tả</label>
         <textarea name="mota" id="mota"></textarea>
       </div>
 
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="namxuatban">Năm xuất bản </label>
         <input type="text" name="namxuatban" id="namxuatban" value="">
       </div>
 
-      <div class="add-form-col">
+      <div class="addsach-form-col">
         <label for="nhaxuatban">Nhà xuất bản</label>
         <input type="text" name="nhaxuatban" id="nhaxuatban" value="">
       </div>
 
     </div>
-    <div class="add-form-col">
-      <button class="mainadd-form-btn">Thêm sách</button>
+    <div class="addsach-form-col">
+      <button class="main-addsach-form-btn">Thêm sách</button>
     </div>
   </form>
 

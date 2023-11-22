@@ -1,6 +1,5 @@
 <?php
 // Function for BanDoc
-
 function addBanDoc($conn, $hoten, $ngaysinh, $que, $cccd, $phone,$email,$gioitinh,$password) {
     $sql_statement = "INSERT INTO `bandoc` (`tenBandoc`, `ngaySinh`, `gioiTinh`, `queQuan`, `cmnd`, `dt`,`email`, `matKhau`) VALUES ('$hoten', '$ngaysinh', '$gioitinh', '$que', '$cccd', '$phone','$email','$password')";
     mysqli_query($conn, $sql_statement);
@@ -13,7 +12,7 @@ function updateBanDoc($conn,$Mabandoc,$Tenbandoc,$Ngaysinh,$Gioitinh,$Que,$Cmnd,
 }
 
 function getBandoc($conn,$Mabandoc){
-     $sql_statement = "SELECT * FROM `bandoc` WHERE maBandoc = '$Mabandoc'";
+     $sql_statement = "SELECT * FROM `bandoc` WHERE maBandoc = '$Mabandoc' ";
      $result = mysqli_query($conn,$sql_statement);
      return $result;
 }
@@ -35,8 +34,10 @@ function deleteBandoc($conn,$Mabandoc){
     mysqli_query($conn,$sql_statement);
     return mysqli_affected_rows($conn);
 }
+
+
 // Funtion for Thuthu
-function getThuThu($conn,$Username){
+function getaccThuThu($conn,$Username){
     $sql_statement = "SELECT * FROM thuthu WHERE mathuthu='$Username'";
     $result=null;
     if($sql_result=mysqli_query($conn,$sql_statement)){
@@ -46,6 +47,35 @@ function getThuThu($conn,$Username){
     }
     return $result;
 
+}   
+
+function addThuThu($conn,$Mathuthu,$Tenthuthu,$Matkhau){
+    $sql_statement ="INSERT INTO `thuthu`(`maThuthu`,`tenThuthu`,`matKhau`) VALUES ('$Mathuthu','$Tenthuthu','$Matkhau')";
+    mysqli_query($conn, $sql_statement);
+}
+
+function listThuThu($conn){
+    $sql_statement = "SELECT maThuthu, tenThuthu FROM `thuthu` WHERE `trangThai`= true ";
+    $result= mysqli_query($conn,$sql_statement);
+    return $result;
+}
+
+function deleteThuThu($conn,$Mathuthu){
+    $sql_statement = "UPDATE `thuthu` SET `trangThai` = false WHERE `maThuthu` = '$Mathuthu' AND `trangThai` = true";
+    mysqli_query($conn,$sql_statement);
+    return mysqli_affected_rows($conn);
+}
+
+function updateThuThu($conn,$Mathuthu,$Tenthuthu){
+    $sql_statement = "UPDATE `thuthu` SET `tenThuthu` = '$Tenthuthu' WHERE `maThuthu` ='$Mathuthu'";
+    mysqli_query($conn,$sql_statement);
+    return mysqli_affected_rows($conn);
+}
+
+function getThuthu($conn,$Mathuthu){
+    $sql_statement = "SELECT * FROM `thuthu` WHERE `mathuthu` = '$Mathuthu' ";
+    $result = mysqli_query($conn,$sql_statement);
+    return $result;
 }
 //Function for Sách
 
