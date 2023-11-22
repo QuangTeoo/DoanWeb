@@ -1,3 +1,7 @@
+body {
+    background-color: #fff1f2;
+}
+
 .form-main {
     max-width: 500px;
     margin: 0px auto;
@@ -34,6 +38,7 @@
     font-size: 17px;
     width: 100%;
     padding: 10px;
+    cursor: pointer;
 }
 
 .form-main a {
