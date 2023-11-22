@@ -2,7 +2,9 @@
     padding: 0px;
     margin: 0px;
 }
-#bore-main{    
+#bore-main{
+    width: 1000px;
+    margin: 0 auto;
     display: grid;
     grid-auto-flow: column;
     gap: 200px;

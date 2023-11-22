@@ -1,7 +1,7 @@
 <?php
 if (session_id() === '')
     session_start();
-if (empty($_SESSION["username"])) {
+if (empty($_SESSION["maThuthu"])) {
     header("Location: login.php");
     exit();
 }
@@ -31,6 +31,7 @@ if (empty($_SESSION["username"])) {
                 <a href="?page=sachlist">Quản lý sách</a>
                 <ul class="dropdown">
                     <li><a href="?page=sachlist">Danh sách sách</a></li>
+                    <li><a href="?page=sachlistborrow">Danh sách mượn</a></li>
                     <li><a href="?page=sachadd">Thêm sách mới</a></li>
                 </ul>
             </li>
@@ -51,6 +52,9 @@ if (empty($_SESSION["username"])) {
                 break;
             case 'sachlist':
                 require("pages/SachList.php");
+                break;
+            case 'sachlistborrow':
+                require("pages/SachListBorrow.php");
                 break;
             case 'sachupdate':
                 require("pages/SachUpdate.php");

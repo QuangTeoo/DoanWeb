@@ -2,9 +2,8 @@
     if(session_id() === '' )
       session_start();
     if (isset($_GET["logout"]))
-      unset($_SESSION["username"]);
+      unset($_SESSION["maThuthu"]);
     if (isset($_POST["username"])) {
-      session_start();
       require"./conn.php";
       require"./func.php";
       $username = $_POST['username'];
@@ -12,12 +11,14 @@
       $result = getThuThu($conn,$username);
       mysqli_close($conn);
       if(isset($result) && password_verify($password, $result['matKhau'])) {
-          $_SESSION["username"] = $_POST["username"];
+          $_SESSION["maThuthu"] = $_POST["username"];
           $_SESSION["tenThuThu"] = $result["tenThuthu"];
           header("Location: index.php");
           exit();
         } else {
-          echo "sai mat khau";
+?>
+          <script>alert("Sai mật khẩu hoặc Tài khoản. Vui lòng nhập lại!")</script>
+<?php 
         }
     }
 ?>

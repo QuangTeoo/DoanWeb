@@ -53,8 +53,23 @@ function getThuThu($conn,$Username){
 //     $sql_statement= "SELECT maSach,tenSach,theLoai,tacGia"
 // }
 
+function listSachborrow($conn){
+    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach`";
+    $result = mysqli_query($conn,$sql_statement);
+    return $result;
+}
+
 function addSach($conn,$Masach,$Tensach,$Theloai,$Tacgia,$Hinh,$Mota,$Namxb,$Nhaxb){
     $sql_statement = "INSERT INTO `sach` (`maSach`,`tenSach`, `theLoai`, `tacGia`, `hinh`, `moTa`, `namXuatban`,`nhaXuatban`) VALUES ('$Masach', '$Tensach', '$Theloai', '$Tacgia', '$Hinh', '$Mota','$Namxb','$Nhaxb')";
     mysqli_query($conn, $sql_statement);
 }
+//Function for borrow and return 
+function borrowSach($conn,$Mabandoc,$Masach,$Mathuthu,$Ngaytradukien){
+    $sql_statement = "INSERT INTO `muon` (`maBandoc`,`maSach`,`maThuthuduyet`,`ngayMuon`,`ngayTradukien`) values ('$Mabandoc','$Masach','$Mathuthu',CURRENT_TIMESTAMP(),'$Ngaytradukien')";
+    mysqli_query($conn,$sql_statement);
+}
+function returnSach($conn,$Mabandoc,$Masach,$Mathuthu){
+    $sql_statement = "UPDATE `muon` SET `maThuthutra` = '$Mathuthu',`ngayDatra` = CURRENT_TIMESTAMP() WHERE `maBandoc` = '$Mabandoc' AND `maSach` = '$Masach' AND `ngayDatra` IS NULL" ;
+    mysqli_query($conn,$sql_statement);
+} 
 ?>
