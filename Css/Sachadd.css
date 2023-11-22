@@ -9,12 +9,6 @@
   text-transform: uppercase;
 }
 
-.mainadd-form {
-  max-width: 1000px;
-  margin: 10px auto;
-
-}
-
 .add-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

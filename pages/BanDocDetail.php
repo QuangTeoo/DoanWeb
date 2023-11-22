@@ -4,7 +4,7 @@ require('./func.php');
 $result = detailBandoc($conn,$_GET["mabandoc"]);
     $r = mysqli_fetch_array($result)
 ?>
-<div class="detail-main">
+<div class="detail-main center-container">
     <div>Bạn đọc</div>
     <h1 id="titleTenBanDoc"><?php echo $r["tenBandoc"] ?></h1>
     <div class="container-bandoc-info">

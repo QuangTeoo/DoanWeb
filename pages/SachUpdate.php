@@ -1,4 +1,4 @@
-<div class="content-form">
+<div class="content-form center-container">
   <h1>Thông tin sách</h1>
   <form method="post" enctype="multipart/form-data">
     <div class="content-form-update">
@@ -40,10 +40,10 @@
         <input type="text" name="" id="nhaxuatban" value="">
       </div>
 
-      <div class="content-form-col">
+      <!-- <div class="content-form-col">
         <label for="trangthai">Trạng thái</label>
         <input type="text" name="" id="trangthai" value="">
-      </div>
+      </div> -->
     </div>
     <div class="content-form-col">
       <button class="content-form-btn"> Cập nhật</button>

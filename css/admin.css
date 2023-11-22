@@ -67,3 +67,8 @@ body {
 .search-box button[type=submit]:hover {
     background-color: #e11d48;
 }
+
+.center-container {
+    width: 1000px;
+    margin: 0 auto;
+}

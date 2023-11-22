@@ -14,7 +14,7 @@ if (isset($_POST["masach"])) {
   addSach($conn,$Masach,$Tensach,$Theloai,$Tacgia,$Hinh,$Mota,$Namxb,$Nhaxb);
 }
 ?>
-<div class="mainadd-form">
+<div class="mainadd-form center-container">
   <h1>Thêm sách mới </h1>
   <form method="post" enctype="multipart/form-data">
     <div class="add-form">

@@ -18,22 +18,22 @@ if(isset($_POST["action"])){
     }
 }
 ?>
-<div id="bore-main">
+<div id="bore-main" class="center-container">
     <div id="bo-main">
         <h1>Mượn sách</h1>
         <form method="POST">
             <input type="hidden" name="action" value="muon">
             <div class="bo-element-container">
-                <label for="mabandoc">Mã bạn đọc</label>
-                <input type="text" name="mabandoc" id="mabandoc" placeholder="Nhập mã bạn đọc" required>
+                <label for="mabandocmuon">Mã bạn đọc</label>
+                <input type="text" name="mabandoc" id="mabandocmuon" placeholder="Nhập mã bạn đọc" required>
             </div>
             <div class="bo-element-container">
-                <label for="masach">Mã sách</label>
-                <input type="text" name="masach" id="masach" placeholder="Nhập mã sách" required>
+                <label for="masachmuon">Mã sách</label>
+                <input type="text" name="masach" id="masachmuon" placeholder="Nhập mã sách" required>
             </div>
             <div class="bo-element-container">
-                <label for="ngaytra">Ngày trả dự kiến</label>
-                <input type="date" name="ngaytradukien" id="ngaytra" required>
+                <label for="ngaytramuon">Ngày trả dự kiến</label>
+                <input type="date" name="ngaytradukien" id="ngaytramuon" required>
             </div>
             <div class="bo-element-container">
                 <button>Mượn sách</button>
@@ -45,12 +45,12 @@ if(isset($_POST["action"])){
         <form method="POST">
             <input type="hidden" name="action" value="tra">
             <div class="re-element-container">
-                <label for="mabandoc">Mã bạn đọc</label>
-                <input type="text" name="mabandoc" id="mabandoc" required placeholder="Nhập mã bạn đọc">
+                <label for="mabandoctra">Mã bạn đọc</label>
+                <input type="text" name="mabandoc" id="mabandoctra" required placeholder="Nhập mã bạn đọc">
             </div>
             <div class="re-element-container">
-                <label for="masach">Mã sách</label>
-                <input type="text" name="masach" id="masach" required placeholder="Nhập mã sách">
+                <label for="masachtra">Mã sách</label>
+                <input type="text" name="masach" id="masachtra" required placeholder="Nhập mã sách">
             </div>
             <div class="re-element-container">
                 <button>Trả sách</button>

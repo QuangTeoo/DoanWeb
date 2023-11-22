@@ -1,3 +1,8 @@
+<?php
+require("conn.php");
+require("func.php");
+$danhsachSach = listSach($conn);
+?>
 <div class="main_table">
     <h1>Danh sách Sách</h1>
     <div class="search-box">
@@ -11,23 +16,25 @@
         <thead>
             <th>Mã sách</th>
             <th>Tên sách</th>
-            <th>Thể Loại</th>
             <th>Tác giả</th>
             <th>Trạng thái mượn </th>
             <th>Hành động</th>
         </thead>
         <tbody>
+            <?php foreach ($danhsachSach as $sach) { ?>
             <tr>
-                <td>123456</td>
-                <td>wibu</td>
-                <td>anime</td>
-                <td>Tèo</td>
-                <td>Chưa mượn</td>
+                <td><?php echo $sach["maSach"]?></td>
+                <td><?php echo $sach["tenSach"]?></td>
+                <td><?php echo $sach["tacGia"]?></td>
+                <td><?php
+                
+                 ?></td>
                 <td>
                     <a href="?page=sachupdate">Sửa</a>
                     <a href="#">Xóa</a>
                 </td>
             </tr>
+            <?php } ?>
         </tbody>
     </table>
 </div>

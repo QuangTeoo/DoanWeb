@@ -49,9 +49,15 @@ function getThuThu($conn,$Username){
 }
 //Function for Sách
 
-// function listSach($conn,$Masach){
-//     $sql_statement= "SELECT maSach,tenSach,theLoai,tacGia"
-// }
+function listSach($conn){
+    $sql_statement= "SELECT maSach,tenSach,theLoai,tacGia,namXuatban FROM sach WHERE Trangthai = true";
+    $sql_result = mysqli_query($conn, $sql_statement);
+    $result = [];
+    while ($row = mysqli_fetch_assoc($sql_result)) {
+        $result[] = $row;
+    }
+    return $result;
+}
 
 function listSachborrow($conn){
     $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach`";

@@ -17,7 +17,7 @@ if (isset($_GET["mabandoc"])) {
     $r = mysqli_fetch_array($result);
 }
 ?>
-<div class="container-update">
+<div class="container-update center-container">
     <h1>Cập nhật thông tin </h1>
     <form class="container-update-form" method="post">
         <label for="ma">Mã bạn đọc </label>

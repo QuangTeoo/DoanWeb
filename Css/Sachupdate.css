@@ -7,14 +7,9 @@
   text-align: center;
   text-transform: uppercase;
 }
-.content-form {
-    max-width: 1000px;  
-    margin: 10px auto;
-
-  }
 .content-form-update{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
   grid-gap: 15px;
 
 }
