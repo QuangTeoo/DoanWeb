@@ -3,19 +3,78 @@
     margin: 0;
     font-family: sans-serif;
 }
-.detail-main h1 {
-    margin-top: 10px;
-    text-align: center;
+.detail-main #titleTenBanDoc {
+    text-transform: uppercase;
 }
 .detail-main {
     margin: 0 auto;
-    border: 1px solid;
     width: 1000px;
     height: 500px;
 }
+
+.detail-main table {
+    margin-top: 20px;
+    border-spacing: 0;
+    border: 1px solid #f43f5e;
+}
+
+.detail-main th {
+    background-color: #f43f5e;
+    color: white;
+    padding: 4px;
+}
+
 .detail-main td{
+    padding: 10px 20px;
+}
+
+.detail-main tr:nth-child(odd) {
+    background-color: #ffe4e6;
+}
+
+.detail-main tr:hover {
+    background-color: #fecdd3;
+}
+.container-bandoc-info {
+    display: flex;
+    justify-content: center;
+}
+
+.bandoc-action {
+    margin-left: auto;
+    position: relative;
+}
+
+.bandoc-action a,.bandoc-action button {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
     text-align: center;
-    height: 40px;
-    /* border-bottom: 1px solid; */
-    padding-top: 20px;
+    margin: 5px 0;
+}
+
+.btnSuaBanDoc {
+    padding: 10px 20px;
+    color: white;
+    background-color: #f43f5e;
+}
+
+.btnXoaBanDoc {
+    position: absolute;
+    bottom: 0;
+    padding: 10px 20px;
+    color: #f43f5e;
+    border: 1px solid #f43f5e;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.btnSuaBanDoc:hover {
+    background-color: #fb7185;
+}
+
+.btnXoaBanDoc:hover {
+    background-color: red;
+    color: white;
 }
