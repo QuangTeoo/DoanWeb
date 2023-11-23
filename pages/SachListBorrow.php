@@ -2,8 +2,8 @@
     <h1>Danh sách Mượn</h1>
     <div class="search-box">
         <form method="get">
-            <input type="hidden" name="page" value="sachlist">
-            <input type="text" name="query" placeholder="Tìm kiếm..." required>
+            <input type="hidden" name="page" value="sachlistborrow">
+            <input type="text" name="query" placeholder="Tìm kiếm..." value="<?php if (isset($_GET["query"])) echo $_GET["query"] ?>" required>
             <button type="submit">Tìm kiếm</button>
         </form>
     </div>
@@ -20,10 +20,15 @@
             <?php
             require('./conn.php');
             require('./func.php');
-            $result = listSachborrow($conn);
+            $result = null;
+            if (isset($_GET["query"])) {
+                $result = listSachborrow($conn,$_GET["query"]);
+            } else {
+                $result = listSachborrow($conn); 
+            }
             if ($result->num_rows > 0) {
                 while ($r = mysqli_fetch_array($result)) {
-            ?>
+                    ?>
                     <tr>
                         <td><?php echo $r["maBandoc"] ?> - <?php echo $r["tenBandoc"] ?></td>
                         <td><?php echo $r["maSach"] ?></td>
@@ -41,7 +46,7 @@
                 <tr>
                     <td colspan="10">Không có dữ liệu</td>
                 </tr>
-            <?php
+        <?php
             }
             ?>
         </tbody>

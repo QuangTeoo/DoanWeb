@@ -1,7 +1,12 @@
 <?php
 require("conn.php");
 require("func.php");
-$listSach = listSach($conn);
+$listSach = null;
+if (isset($_GET["query"])) {
+    $listSach = listSach($conn, $_GET["query"]);
+} else {
+    $listSach = listSach($conn);
+}
 $listSachBorrowedID = listSachBorrowID($conn);
 $listSachPreoderedID = listSachPreoderID($conn);
 ?>
@@ -10,7 +15,7 @@ $listSachPreoderedID = listSachPreoderID($conn);
     <div class="search-box">
         <form method="get">
             <input type="hidden" name="page" value="sachlist">
-            <input type="text" name="query" placeholder="Tìm kiếm..." required>
+            <input type="text" name="query" placeholder="Tìm kiếm..." value="<?php if (isset($_GET["query"])) echo $_GET["query"] ?>" required>
             <button type="submit">Tìm kiếm</button>
         </form>
     </div>
@@ -19,6 +24,7 @@ $listSachPreoderedID = listSachPreoderID($conn);
             <th>Mã sách</th>
             <th>Tên sách</th>
             <th>Tác giả</th>
+            <th>Thể loại</th>
             <th>Trạng thái mượn </th>
             <th>Hành động</th>
         </thead>
@@ -28,6 +34,7 @@ $listSachPreoderedID = listSachPreoderID($conn);
                 <td><?php echo $sach["maSach"]?></td>
                 <td><?php echo $sach["tenSach"]?></td>
                 <td><?php echo $sach["tacGia"]?></td>
+                <td><?php echo $sach["theLoai"]?></td>
                 <td><?php
                 if (in_array($sach["maSach"], $listSachBorrowedID)) {
                     echo "<span class=\"txtStatusBorrowed\">Đang được mượn</span>";

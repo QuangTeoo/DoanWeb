@@ -2,7 +2,7 @@
     <h1>Danh sách Bạn Đọc </h1>
     <div class="search-box">
         <form method="get">
-            <input type="hidden" name="page" value="sachlist">
+            <input type="hidden" name="page" value="bandoclist">
             <input type="text" name="query" placeholder="Tìm kiếm..." required>
             <button type="submit">Tìm kiếm</button>
         </form>
@@ -19,7 +19,12 @@
             <?php
             require('./conn.php');
             require('./func.php');
-            $result = listBanDoc($conn);
+            $result = null;
+            if (isset($_GET["query"])) {
+                $result = listBanDoc($conn, $_GET["query"]);
+            } else {
+                $result = listBanDoc($conn);
+            }
             if ($result->num_rows > 0) {
                 while ($r = mysqli_fetch_array($result)) {
             ?>
