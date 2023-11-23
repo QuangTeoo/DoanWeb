@@ -15,7 +15,7 @@ function updateBanDoc($conn, $Mabandoc, $Tenbandoc, $Ngaysinh, $Gioitinh, $Que, 
 
 function getBandoc($conn, $Mabandoc)
 {
-    $sql_statement = "SELECT * FROM `bandoc` WHERE maBandoc = '$Mabandoc' ";
+    $sql_statement = "SELECT * FROM `bandoc` WHERE maBandoc = '$Mabandoc' AND trangThai = true ";
     $result = mysqli_query($conn, $sql_statement);
     return $result;
 }
@@ -51,7 +51,7 @@ function deleteBandoc($conn, $Mabandoc)
 // Funtion for Thuthu
 function getaccThuThu($conn, $Username)
 {
-    $sql_statement = "SELECT * FROM thuthu WHERE mathuthu='$Username'";
+    $sql_statement = "SELECT * FROM thuthu WHERE mathuthu='$Username' AND trangThai = true";
     $result = null;
     if ($sql_result = mysqli_query($conn, $sql_statement)) {
         if ($row = mysqli_fetch_array($sql_result)) {
@@ -93,7 +93,7 @@ function updateThuThu($conn, $Mathuthu, $Tenthuthu)
 
 function getThuthu($conn, $Mathuthu)
 {
-    $sql_statement = "SELECT * FROM `thuthu` WHERE `mathuthu` = '$Mathuthu' ";
+    $sql_statement = "SELECT * FROM `thuthu` WHERE `mathuthu` = '$Mathuthu' AND `trangThai` = true ";
     $result = mysqli_query($conn, $sql_statement);
     return $result;
 }
