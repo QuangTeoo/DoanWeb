@@ -42,3 +42,7 @@
 .main-listborrow-table td > a {
     display: inline-block;
 }
+.main-listborrow-table .txtStatusBorrowed {
+    color: blue;
+    font-weight: bold;
+}

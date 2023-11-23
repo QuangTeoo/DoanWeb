@@ -115,20 +115,27 @@ function listSach($conn, $term = null)
 
 function listSachborrow($conn, $term = null)
 {
-    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach`";
+    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`,`muon`.`ngayDatra` FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach`";
     if ($term) {
         $sql_statement = $sql_statement . " AND (`bandoc`.`maBandoc`LIKE '$term' 
         OR `bandoc`.`tenBandoc` LIKE '%$term%' 
         OR `sach`.`tenSach` LIKE '%$term%' 
         OR `sach`.`maSach` LIKE '$term' 
         OR `sach`.`tacGia` LIKE  '%$term%' 
-        OR `muon`.`ngayMuon` LIKE '%$term%' 
+        OR DATE(`muon`.`ngayMuon`) = '$term' 
         OR `muon`.`maThuthuduyet` LIKE '%$term%' 
-        OR `muon`.`ngayTradukien` LIKE '%$term%' 
+        OR DATE(`muon`.`ngayTradukien`) = '$term' 
         ) ";
     }
+    $sql_statement = $sql_statement . " ORDER BY ID DESC";
     $result = mysqli_query($conn, $sql_statement);
     return $result;
+}
+
+function deleteSach($conn, $maSach) {
+    $sql_statement = "UPDATE `sach` SET `trangThai` = false WHERE `maSach` = '$maSach' AND `trangThai` = true";
+    mysqli_query($conn, $sql_statement);
+    return mysqli_affected_rows($conn);
 }
 
 function listSachBorrowID($conn)
@@ -175,6 +182,12 @@ function updateSach($conn, $maSach, $tenSach, $theLoai, $tacGia, $moTa, $namXuat
 }
 
 //Function for borrow and return 
+function checkBorrowValidity($conn, $maBandoc, $maSach) {
+    // Nếu hàm này trả về false thì nghĩa là không đủ đk.
+    $sql_statement = "SELECT maSach FROM sach WHERE maSach IN (SELECT DISTINCT maSach FROM yeucau WHERE maSach = '$maSach' AND maBandoc != '$maBandoc' AND hanNhansach >= CURRENT_DATE() AND trangThai = true) OR maSach IN (SELECT DISTINCT maSach FROM muon WHERE maSach = '$maSach' AND ngayDatra IS NULL);";
+    $result = mysqli_query($conn, $sql_statement);
+    return (mysqli_num_rows($result) == 0);
+}
 function borrowSach($conn, $Mabandoc, $Masach, $Mathuthu, $Ngaytradukien)
 {
     $sql_statement = "INSERT INTO `muon` (`maBandoc`,`maSach`,`maThuthuduyet`,`ngayMuon`,`ngayTradukien`) values ('$Mabandoc','$Masach','$Mathuthu',CURRENT_TIMESTAMP(),'$Ngaytradukien')";
@@ -184,6 +197,7 @@ function returnSach($conn, $Mabandoc, $Masach, $Mathuthu)
 {
     $sql_statement = "UPDATE `muon` SET `maThuthutra` = '$Mathuthu',`ngayDatra` = CURRENT_TIMESTAMP() WHERE `maBandoc` = '$Mabandoc' AND `maSach` = '$Masach' AND `ngayDatra` IS NULL";
     mysqli_query($conn, $sql_statement);
+    return mysqli_affected_rows($conn);
 }
 
 ?>

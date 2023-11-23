@@ -46,10 +46,26 @@ $listSachPreoderedID = listSachPreoderID($conn);
                  ?></td>
                 <td>
                     <a href="?page=sachupdate&masach=<?php echo $sach["maSach"]; ?>">Sửa</a>
-                    <a href="#">Xóa</a>
+                    <button onclick="confirmDelete('<?php echo $sach["maSach"] ?>',`<?php echo $sach["tenSach"]?>`)">Xóa</button>
                 </td>
             </tr>
             <?php } ?>
         </tbody>
     </table>
 </div>
+
+<script>
+    function confirmDelete(maSach, tenSach) {
+    if (confirm(
+            `Xác nhận xoá
+${maSach} - ${tenSach}.
+Thao tác này sẽ không thể hoàn tác.`
+        )) {
+        document.location = document.location.origin + document.location.pathname + '?page=sachdelete&masach=' + maSach;
+    }
+    }
+<?php
+if (isset($_GET["deleteSuccess"]) && $_GET["deleteSuccess"]) { ?>
+    alert("Xóa thành công");
+<?php } ?>
+</script>

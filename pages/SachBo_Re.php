@@ -8,13 +8,23 @@ if(isset($_POST["action"])){
             $Masach = $_POST["masach"];
             $Ngaytradukien = $_POST["ngaytradukien"];
             $Mathuthu = $_SESSION["maThuthu"];
+            if (!checkBorrowValidity($conn, $Mabandoc, $Masach)) {
+                echo "<script>alert(`Sách này đã có người đặt trước hoặc đã có người mượn.`)</script>";
+                break;
+            }
             borrowSach($conn,$Mabandoc,$Masach,$Mathuthu,$Ngaytradukien);
+            echo "<script> alert('Mượn thành công')</script>";
             break;
         case "tra":
             $Mabandoc = $_POST["mabandoc"];
             $Masach = $_POST["masach"];
             $Mathuthu = $_SESSION["maThuthu"];
-            returnSach($conn,$Mabandoc,$Masach,$Mathuthu);
+            if (returnSach($conn,$Mabandoc,$Masach,$Mathuthu) > 0) {
+                echo "<script>alert('Trả sách thành công')</script>";
+            } else {
+                echo "<script>alert('Không có dữ liệu đang mượn với sách này.')</script>";
+            }
+
     }
 }
 ?>
@@ -58,19 +68,3 @@ if(isset($_POST["action"])){
         </form>
     </div>
 </div>
-<?php
-if (isset($_POST["action"])) {
-    switch ($_POST["action"]){
-        case 'muon':
-?>
-        <script> alert('Mượn thành công')</script>
-<?php
-            break;
-        case 'tra' :
-?>
-            <script>alert('Trả sách thành công')</script>
-<?php
-            break;
-    }
-}
-?>
