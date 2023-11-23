@@ -45,7 +45,7 @@ $listSachPreoderedID = listSachPreoderID($conn);
                 }
                  ?></td>
                 <td>
-                    <a href="?page=sachupdate">Sửa</a>
+                    <a href="?page=sachupdate&masach=<?php echo $sach["maSach"]; ?>">Sửa</a>
                     <a href="#">Xóa</a>
                 </td>
             </tr>

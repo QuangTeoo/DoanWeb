@@ -155,11 +155,25 @@ function listSachPreoderID($conn)
     return $result;
 }
 
-function addSach($conn, $Masach, $Tensach, $Theloai, $Tacgia, $Hinh, $Mota, $Namxb, $Nhaxb)
-{
+function getSach($conn, $maSach) {
+    $sql_statement = "SELECT * FROM sach WHERE maSach = '$maSach' AND trangThai = true";
+    $result = mysqli_query($conn, $sql_statement);
+    return mysqli_fetch_assoc($result);
+}
+
+function addSach($conn, $Masach, $Tensach, $Theloai, $Tacgia, $Hinh, $Mota, $Namxb, $Nhaxb) {
     $sql_statement = "INSERT INTO `sach` (`maSach`,`tenSach`, `theLoai`, `tacGia`, `hinh`, `moTa`, `namXuatban`,`nhaXuatban`) VALUES ('$Masach', '$Tensach', '$Theloai', '$Tacgia', '$Hinh', '$Mota','$Namxb','$Nhaxb')";
     mysqli_query($conn, $sql_statement);
 }
+
+function updateSach($conn, $maSach, $tenSach, $theLoai, $tacGia, $moTa, $namXuatBan, $nhaXuatBan, $hinh = null) {
+    $sql_statement = "UPDATE `sach` SET `tenSach` = '$tenSach', `theLoai` = '$theLoai', `tacGia` = '$tacGia', `moTa` = '$moTa', `namXuatban` = '$namXuatBan', `nhaXuatban` = '$nhaXuatBan' WHERE `sach`.`maSach` = '$maSach'";
+    if ($hinh)
+        $sql_statement = "UPDATE `sach` SET `tenSach` = '$tenSach', `theLoai` = '$theLoai', `tacGia` = '$tacGia', `hinh` = '$hinh', `moTa` = '$moTa', `namXuatban` = '$namXuatBan', `nhaXuatban` = '$nhaXuatBan' WHERE `sach`.`maSach` = '$maSach'";
+    mysqli_query($conn, $sql_statement);
+    return mysqli_affected_rows($conn);
+}
+
 //Function for borrow and return 
 function borrowSach($conn, $Mabandoc, $Masach, $Mathuthu, $Ngaytradukien)
 {
