@@ -184,14 +184,16 @@ function updateSach($conn, $maSach, $tenSach, $theLoai, $tacGia, $moTa, $namXuat
 //Function for borrow and return 
 function checkBorrowValidity($conn, $maBandoc, $maSach) {
     // Nếu hàm này trả về false thì nghĩa là không đủ đk.
-    $sql_statement = "SELECT maSach FROM sach WHERE maSach IN (SELECT DISTINCT maSach FROM yeucau WHERE maSach = '$maSach' AND maBandoc != '$maBandoc' AND hanNhansach >= CURRENT_DATE() AND trangThai = true) OR maSach IN (SELECT DISTINCT maSach FROM muon WHERE maSach = '$maSach' AND ngayDatra IS NULL);";
+    $sql_statement = "SELECT 1 FROM sach WHERE maSach IN (SELECT DISTINCT maSach FROM yeucau WHERE maSach = '$maSach' AND maBandoc != '$maBandoc' AND hanNhansach >= CURRENT_DATE() AND trangThai = true) OR maSach IN (SELECT DISTINCT maSach FROM muon WHERE maSach = '$maSach' AND ngayDatra IS NULL);";
     $result = mysqli_query($conn, $sql_statement);
     return (mysqli_num_rows($result) == 0);
 }
 function borrowSach($conn, $Mabandoc, $Masach, $Mathuthu, $Ngaytradukien)
 {
-    $sql_statement = "INSERT INTO `muon` (`maBandoc`,`maSach`,`maThuthuduyet`,`ngayMuon`,`ngayTradukien`) values ('$Mabandoc','$Masach','$Mathuthu',CURRENT_TIMESTAMP(),'$Ngaytradukien')";
+    $sql_statement = "INSERT INTO `muon` (`maBandoc`,`maSach`,`maThuthuduyet`,`ngayMuon`,`ngayTradukien`) values ('$Mabandoc','$Masach','$Mathuthu',CURRENT_TIMESTAMP(),'$Ngaytradukien');";
+    $sql_statement = $sql_statement . " UPDATE `yeucau` SET (`trangThai` = false) WHERE `maSach` = '$Masach' AND `maBandoc` = '$Mabandoc' AND `trangThai` = true ";
     mysqli_query($conn, $sql_statement);
+
 }
 function returnSach($conn, $Mabandoc, $Masach, $Mathuthu)
 {
