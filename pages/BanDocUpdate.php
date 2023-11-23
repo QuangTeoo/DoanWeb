@@ -34,8 +34,8 @@ if (isset($_GET["mabandoc"])) {
             <div class="content-grid-gender">
                 <label for="gioitinh">Giới tính</label>
                 <select name="gender" id="gioitinh">
-                    <option value="<?php echo $r["gioiTinh"] ?>">Nam</option>
-                    <option value="<?php echo $r["gioiTinh"] ?>">Nữ</option>
+                    <option value="nam" <?php if($r["gioiTinh"] == 'nam' ) {echo 'selected';} ?>>Nam</option>
+                    <option value="nu" <?php if($r["gioiTinh"] == 'nu' ) {echo 'selected';} ?>>Nữ</option>
                 </select>
             </div>
             <div class="content-grid-vilage">
