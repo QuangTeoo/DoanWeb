@@ -15,6 +15,7 @@
             <th>Mã thủ duyệt mượn</th>
             <th>Ngày mượn </th>
             <th>Ngày trả dự kiến</th>
+            <th>Ngày trả thực tế</th>
         </thead>
         <tbody>
             <?php
@@ -36,6 +37,9 @@
                         <td><?php echo $r["maThuthuduyet"] ?></td>
                         <td><?php echo $r["ngayMuon"] ?></td>
                         <td><?php echo $r["ngayTradukien"] ?></td>
+                        <td>
+                            <?php echo ($r["ngayDatra"] != "") ? $r["ngayDatra"] : "<span class=\"txtStatusBorrowed\">Sách chưa trả</span>" ?>
+                        </td>
                     </tr>
                 <?php
                 }

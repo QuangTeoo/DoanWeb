@@ -89,6 +89,9 @@ if (empty($_SESSION["maThuthu"])) {
             case 'sachadd':
                 require("pages/SachAdd.php");
                 break;
+            case 'sachdelete':
+                require("pages/SachDelete.php");
+                break;
             case 'bandoclist':
                 require("pages/BanDocList.php");
                 break;

@@ -7,14 +7,6 @@
     margin: 10px auto;
     text-transform: uppercase;
 }
-.main-listsach-table a{
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 9px 10px;
-}
 .main-listsach-table table{
     border-top: 1px solid black;
     width: 100%;
@@ -42,8 +34,23 @@
     background-color: #d1d5db;
 }
 
-.main-listsach-table td > a {
+.main-listsach-table table a,
+.main-listsach-table table button {
     display: inline-block;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.main-listsach-table table a:hover,
+.main-listsach-table table button:hover {
+    background-color: white;
 }
 
 .main-listsach-table .txtStatusBorrowed {

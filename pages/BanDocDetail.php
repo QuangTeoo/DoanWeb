@@ -49,7 +49,7 @@ $result = detailBandoc($conn,$_GET["mabandoc"]);
         </table>
         <div class="bandoc-action">
             <a href="?page=bandocupdate&mabandoc=<?php echo $r["maBandoc"] ?>" class="btnSuaBanDoc">Chỉnh sửa thông tin</a>
-            <a href="#" class="btnSuaBanDoc">Sách đang được mượn</a>
+            <a href="?page=sachlistborrow&query=<?php echo $r["maBandoc"] ?>" class="btnSuaBanDoc">Sách đang được mượn</a>
             <button onClick="confirmDelete('<?php echo $r["maBandoc"] ?>','<?php echo $r["tenBandoc"] ?>')" class="btnXoaBanDoc">Xoá bạn đọc</button>
         </div>
     </div>

@@ -55,11 +55,10 @@ Thao tác này sẽ không thể hoàn tác.`
             // console.log(document.location.origin + document.location.pathname + '?page=bandocdelete&mabandoc=' + maBandoc);
             document.location = document.location.origin + document.location.pathname + '?page=thuthudelete&mathuthu=' + maThuthu;
         }
-
     }
 </script>
 <?php
-if (isset($_GET["deleteSuccess"])) { ?>
+if (isset($_GET["deleteSuccess"]) && $_GET["deleteSuccess"]) { ?>
     <script>
         alert("Xóa thành công");
     </script>
