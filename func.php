@@ -95,6 +95,28 @@ function listSachborrow($conn){
     return $result;
 }
 
+function listSachBorrowID($conn) {
+    $sql_statement = "SELECT DISTINCT maSach FROM muon WHERE ngayDatra IS NULL";
+    $result = [];
+    if ($sql_result = mysqli_query($conn, $sql_statement)) {
+        while ($row = mysqli_fetch_array($sql_result)) {
+            $result[] = $row[0];
+        }
+    }
+    return $result;
+}
+
+function listSachPreoderID($conn) {
+    $sql_statement = "SELECT DISTINCT maSach FROM yeucau WHERE hanNhansach <= CURRENT_DATE() AND maSach NOT IN (SELECT DISTINCT maSach FROM muon WHERE ngayDatra IS NULL) AND trangThai = true";
+    $result = [];
+    if ($sql_result = mysqli_query($conn, $sql_statement)) {
+        while ($row = mysqli_fetch_array($sql_result)) {
+            $result[] = $row[0];
+        }
+    }
+    return $result;
+}
+
 function addSach($conn,$Masach,$Tensach,$Theloai,$Tacgia,$Hinh,$Mota,$Namxb,$Nhaxb){
     $sql_statement = "INSERT INTO `sach` (`maSach`,`tenSach`, `theLoai`, `tacGia`, `hinh`, `moTa`, `namXuatban`,`nhaXuatban`) VALUES ('$Masach', '$Tensach', '$Theloai', '$Tacgia', '$Hinh', '$Mota','$Namxb','$Nhaxb')";
     mysqli_query($conn, $sql_statement);

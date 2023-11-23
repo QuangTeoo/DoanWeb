@@ -1,7 +1,9 @@
 <?php
 require("conn.php");
 require("func.php");
-$danhsachSach = listSach($conn);
+$listSach = listSach($conn);
+$listSachBorrowedID = listSachBorrowID($conn);
+$listSachPreoderedID = listSachPreoderID($conn);
 ?>
 <div class="main-listsach-table">
     <h1>Danh sách Sách</h1>
@@ -21,13 +23,19 @@ $danhsachSach = listSach($conn);
             <th>Hành động</th>
         </thead>
         <tbody>
-            <?php foreach ($danhsachSach as $sach) { ?>
+            <?php foreach ($listSach as $sach) { ?>
             <tr>
                 <td><?php echo $sach["maSach"]?></td>
                 <td><?php echo $sach["tenSach"]?></td>
                 <td><?php echo $sach["tacGia"]?></td>
                 <td><?php
-                
+                if (in_array($sach["maSach"], $listSachBorrowedID)) {
+                    echo "<span class=\"txtStatusBorrowed\">Đang được mượn</span>";
+                } else if (in_array($sach["maSach"], $listSachPreoderedID)) {
+                    echo "<span class=\"txtStatusPreordered\">Đã được đặt mượn</span>";
+                } else {
+                    echo "Đang sẵn sàng";
+                }
                  ?></td>
                 <td>
                     <a href="?page=sachupdate">Sửa</a>

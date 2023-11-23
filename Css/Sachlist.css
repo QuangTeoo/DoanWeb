@@ -19,20 +19,39 @@
     border-top: 1px solid black;
     width: 100%;
     border-collapse: collapse; /* làm mất khung */
-    
-}
-.main-listsach-table th{
-    /* border-bottom: 1px solid; */
-    padding: 10px;
-    background-color: white;
-    
 }
 .main-listsach-table td{
     text-align: center;
-    background-color: #d1d5db;
     padding: 10px 20px;
+}
+
+.main-listsach-table tr {
+    background-color: #f3f4f6;
+}
+
+.main-listsach-table th{
+    padding: 10px;
+    background-color: #d1d5db;   
+}
+
+.main-listsach-table tr:nth-child(even) {
+    background-color: #e5e7eb;
+}
+
+.main-listsach-table tr:hover {
+    background-color: #d1d5db;
 }
 
 .main-listsach-table td > a {
     display: inline-block;
+}
+
+.main-listsach-table .txtStatusBorrowed {
+    color: blue;
+    font-weight: bold;
+}
+
+.main-listsach-table .txtStatusPreordered {
+    color: brown;
+    font-weight: bold;
 }
