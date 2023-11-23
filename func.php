@@ -145,7 +145,7 @@ function listSachBorrowID($conn)
 
 function listSachPreoderID($conn)
 {
-    $sql_statement = "SELECT DISTINCT maSach FROM yeucau WHERE hanNhansach <= CURRENT_DATE() AND maSach NOT IN (SELECT DISTINCT maSach FROM muon WHERE ngayDatra IS NULL) AND trangThai = true";
+    $sql_statement = "SELECT DISTINCT maSach FROM yeucau WHERE hanNhansach >= CURRENT_DATE() AND maSach NOT IN (SELECT DISTINCT maSach FROM muon WHERE ngayDatra IS NULL) AND trangThai = true";
     $result = [];
     if ($sql_result = mysqli_query($conn, $sql_statement)) {
         while ($row = mysqli_fetch_array($sql_result)) {

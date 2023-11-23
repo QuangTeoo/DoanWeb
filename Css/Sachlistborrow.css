@@ -22,14 +22,20 @@
     
 }
 .main-listborrow-table th{
-    /* border-bottom: 1px solid; */
     padding: 10px;
-    background-color: white;
-    
+    background-color: #d1d5db;
+}
+.main-listborrow-table tr:nth-child(even) {
+    background-color: #e5e7eb;
+}
+.main-listborrow-table tr {
+    background-color: #f3f4f6;
+}
+.main-listborrow-table tr:hover {
+    background-color: #d1d5db;
 }
 .main-listborrow-table td{
     text-align: center;
-    background-color: #d1d5db;
     padding: 10px 20px;
 }
 

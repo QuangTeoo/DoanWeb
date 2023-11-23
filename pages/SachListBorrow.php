@@ -22,13 +22,13 @@
             require('./func.php');
             $result = null;
             if (isset($_GET["query"])) {
-                $result = listSachborrow($conn,$_GET["query"]);
+                $result = listSachborrow($conn, $_GET["query"]);
             } else {
-                $result = listSachborrow($conn); 
+                $result = listSachborrow($conn);
             }
             if ($result->num_rows > 0) {
                 while ($r = mysqli_fetch_array($result)) {
-                    ?>
+            ?>
                     <tr>
                         <td><?php echo $r["maBandoc"] ?> - <?php echo $r["tenBandoc"] ?></td>
                         <td><?php echo $r["maSach"] ?></td>
@@ -46,7 +46,7 @@
                 <tr>
                     <td colspan="10">Không có dữ liệu</td>
                 </tr>
-        <?php
+            <?php
             }
             ?>
         </tbody>
