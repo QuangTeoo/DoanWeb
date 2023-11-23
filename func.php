@@ -115,7 +115,7 @@ function listSach($conn, $term = null)
 
 function listSachborrow($conn, $term = null)
 {
-    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`,`muon`.`ngayDatra` FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach` AND `trangThai` = true";
+    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBando`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`,`muon`.`ngayDatra` FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach` ";
     if ($term) {
         $sql_statement = $sql_statement . " AND (`bandoc`.`maBandoc`LIKE '$term' 
         OR `bandoc`.`tenBandoc` LIKE '%$term%' 
@@ -190,8 +190,9 @@ function checkBorrowValidity($conn, $maBandoc, $maSach) {
 }
 function borrowSach($conn, $Mabandoc, $Masach, $Mathuthu, $Ngaytradukien)
 {
-    $sql_statement = "INSERT INTO `muon` (`maBandoc`,`maSach`,`maThuthuduyet`,`ngayMuon`,`ngayTradukien`) values ('$Mabandoc','$Masach','$Mathuthu',CURRENT_TIMESTAMP(),'$Ngaytradukien');";
-    $sql_statement = $sql_statement . " UPDATE `yeucau` SET (`trangThai` = false) WHERE `maSach` = '$Masach' AND `maBandoc` = '$Mabandoc' AND `trangThai` = true ";
+    $sql_statement = "INSERT INTO `muon` (`maBandoc`,`maSach`,`maThuthuduyet`,`ngayMuon`,`ngayTradukien`) values ('$Mabandoc','$Masach','$Mathuthu',CURRENT_TIMESTAMP(),'$Ngaytradukien')";
+    mysqli_query($conn, $sql_statement);
+    $sql_statement =" UPDATE `yeucau` SET `trangThai` = false WHERE `maSach` = '$Masach' AND `maBandoc` = '$Mabandoc' AND `trangThai` = true ";
     mysqli_query($conn, $sql_statement);
 
 }
