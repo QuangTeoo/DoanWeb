@@ -115,7 +115,7 @@ function listSach($conn, $term = null)
 
 function listSachborrow($conn, $term = null)
 {
-    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`,`muon`.`ngayDatra` FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach` ";
+    $sql_statement = "SELECT `bandoc`.`maBandoc`, `bandoc`.`tenBandoc`,`sach`.`maSach`,`sach`.`tenSach`,`sach`.`tacGia`,`muon`.`maThuthuduyet`,`muon`.`maThuthutra`,`muon`.`ngayMuon`,`muon`.`ngayTradukien`,`muon`.`ngayDatra` FROM muon ,bandoc ,sach  WHERE `muon`.`maBandoc` = `bandoc`.`maBandoc`  AND `muon`.`maSach` = `sach`.`maSach` ";
     if ($term) {
         $sql_statement = $sql_statement . " AND (`bandoc`.`maBandoc`LIKE '$term' 
         OR `bandoc`.`tenBandoc` LIKE '%$term%' 

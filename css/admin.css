@@ -17,18 +17,17 @@ body {
 .nav-bar ul{
     list-style: none;
     background-color: #ffe4e6;
+    align-items: center;
 }
 
 .nav-bar > ul {
     padding: 0 80px;
-}
-
-.nav-bar > ul{
     display: flex;
 }
 
-.nav-bar a {
+.nav-bar a[href] {
     padding: 20px;
+    height: 100%;
     display: block;
     text-decoration: none;
     color: black;
@@ -40,7 +39,9 @@ body {
 
 #nav-name{
     margin-left: auto;
+    margin-right: 20px;
 }
+
 .nav-bar li > .dropdown{
     display: none;
     position: absolute;

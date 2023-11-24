@@ -54,7 +54,7 @@ if (empty($_SESSION["maThuthu"])) {
                     <li><a href="?page=thuthuadd">Thêm thủ thư mới</a></li>
                 </ul>
             </li>
-            <li id="nav-name"><a>Xin chào <?php echo $_SESSION["tenThuThu"] ?></a></li>
+            <li id="nav-name"><a>Xin chào<br><?php echo $_SESSION["tenThuThu"] ?></a></li>
             <li><a href="login.php?logout=1">Đăng xuất</a></li>
         </ul>
     </div>

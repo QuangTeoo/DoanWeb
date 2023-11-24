@@ -12,10 +12,11 @@
             <th>Bạn đọc</th>
             <th>Mã sách</th>
             <th>Tên sách </th>
-            <th>Mã thủ duyệt mượn</th>
+            <th>Thủ thư duyệt mượn</th>
             <th>Ngày mượn </th>
             <th>Ngày trả dự kiến</th>
             <th>Ngày trả thực tế</th>
+            <th>Thủ thư duyệt trả</th>
         </thead>
         <tbody>
             <?php
@@ -34,11 +35,15 @@
                         <td><?php echo $r["maBandoc"] ?> - <?php echo $r["tenBandoc"] ?></td>
                         <td><?php echo $r["maSach"] ?></td>
                         <td><?php echo $r["tenSach"] ?></td>
-                        <td><?php echo $r["maThuthuduyet"] ?></td>
+                        <td>
+                            <a href="?page=thuthuupdate&mathuthu=<?php echo $r["maThuthuduyet"] ?>"><?php echo $r["maThuthuduyet"] ?></a></td>
                         <td><?php echo $r["ngayMuon"] ?></td>
                         <td><?php echo $r["ngayTradukien"] ?></td>
                         <td>
                             <?php echo ($r["ngayDatra"] != "") ? $r["ngayDatra"] : "<span class=\"txtStatusBorrowed\">Sách chưa trả</span>" ?>
+                        </td>
+                        <td>
+                            <a href="?page=thuthuupdate&mathuthu=<?php echo $r["maThuthutra"] ?>"><?php echo $r["maThuthutra"] ?></a>
                         </td>
                     </tr>
                 <?php
