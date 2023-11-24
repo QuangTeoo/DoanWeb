@@ -7,7 +7,7 @@ if (isset($_POST["masach"])) {
   $Theloai = $_POST["theloai"];
   $Tacgia = $_POST["tacgia"];
   $Hinh =$_FILES['hinh']['name'];
-  move_uploaded_file($_FILES['hinh']['tmp_name'],"./IMG/".$_FILES['hinh']['name']);
+  move_uploaded_file($_FILES['hinh']['tmp_name'],"../IMG/".$_FILES['hinh']['name']);
   $Mota = $_POST["mota"];
   $Namxb = $_POST["namxuatban"];
   $Nhaxb = $_POST["nhaxuatban"];

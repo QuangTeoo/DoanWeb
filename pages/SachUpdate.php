@@ -11,7 +11,7 @@ if (isset($_POST["masach"])) {
     $namxuatban = $_POST["namxuatban"];
     $nhaxuatban = $_POST["nhaXuatban"];
     if ($hinh) {
-        move_uploaded_file($_FILES["hinh"]["tmp_name"], "IMG/".$_FILES["hinh"]["name"]);
+        move_uploaded_file($_FILES["hinh"]["tmp_name"], "../IMG/".$_FILES["hinh"]["name"]);
     }
     if (updateSach($conn, $masach, $tensach, $theloai, $tacgia, $mota, $namxuatban, $nhaxuatban, $hinh) > 0) {
         ?>
@@ -31,7 +31,7 @@ $sach = getSach($conn, $_GET["masach"]);
         <input type="hidden" name="masach" value="<?php echo $sach["maSach"]?>">
         <div class="content-form-main">
             <div class="content-form-update-img">
-                <img id="imgBookUpdate" src="<?php echo (isset($sach["hinh"]) && $sach["hinh"] != "") ? "IMG/".$sach["hinh"] : "https://placehold.co/600x400?text=KH%C3%94NG+C%C3%93+%E1%BA%A2NH"; ?>">
+                <img id="imgBookUpdate" src="<?php echo (isset($sach["hinh"]) && $sach["hinh"] != "") ? "../IMG/".$sach["hinh"] : "https://placehold.co/600x400?text=KH%C3%94NG+C%C3%93+%E1%BA%A2NH"; ?>">
                 <label for="hinh">Cập nhật hình mới</label>
                 <input type="file" name="hinh" id="hinh" onchange="updateImg(this)">
             </div>
